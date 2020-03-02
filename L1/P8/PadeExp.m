@@ -1,11 +1,12 @@
 function result = PadeExp(x,m,k)
   A = zeros(m,m);
+  % C doar de verificat ca indicele lui c se calculeaza corect
   for i=m:m+k-1  
     row = i-m+1;
     for j=i:-1:i-k+1
       col = i-j+1;
-      %printf("%d%d ", row,col);
-      %A(row,col) = j;
+      % printf("%d%d ", row,col);
+      % C(row,col) = j;
       A(row,col) = NthDerivativeExp(j)/factorial(j);
     endfor
     %disp("");
@@ -24,11 +25,12 @@ function result = PadeExp(x,m,k)
   b
   
   a = zeros(1,m + 1);
-  termPrecedent = 0;
-  for i=1:m + 1
-    a(i) = termPrecedent + NthDerivativeExp(i-1)/factorial(i-1) - (i-1)*b(i);
-    termPrecedent = a(i);
-    % a(i) = NthDerivativeExp(i-1)/factorial(i-1) - (i-1)*b(i);
+  for j=0:m
+    s = 0;
+    for l=0:j
+       s = s + NthDerivativeExp(j-l)/factorial(j-l) * b(l+1);   
+    endfor
+    a(j+1) = s;
   endfor
   a
   
