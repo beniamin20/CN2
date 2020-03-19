@@ -1,6 +1,6 @@
-% sin(x) using Pade(m,k) or R(m,k) 
+% cos(x) using Pade(m,k) or R(m,k) 
 % @see theory from L1
-function result = sinPade(x,m,k)
+function result = cosPade(x,m,k)
   % first quadrant simplification
   x = mod(x, 2 * pi);
   
@@ -10,7 +10,7 @@ function result = sinPade(x,m,k)
     row = i-m+1;
     for j=i:-1:i-k+1
       col = i-j+1;
-      A(row,col) = sinNthDerivative(j)/factorial(j);
+      A(row,col) = cosNthDerivative(j)/factorial(j);
     endfor
   endfor
   % A
@@ -18,7 +18,7 @@ function result = sinPade(x,m,k)
   % A * x = B - @see theory from L1
   B = zeros(m,1);
   for i =1:k
-    B(i,1) = - sinNthDerivative(m+i)/factorial(m+i);
+    B(i,1) = - cosNthDerivative(m+i)/factorial(m+i);
   endfor
   % B
   
@@ -32,7 +32,7 @@ function result = sinPade(x,m,k)
   for j=0:m
     s = 0;
     for l=0:j
-       s = s + sinNthDerivative(j-l)/factorial(j-l) * b(l+1);   
+       s = s + cosNthDerivative(j-l)/factorial(j-l) * b(l+1);   
     endfor
     a(j+1) = s;
   endfor
