@@ -1,5 +1,5 @@
 % Dezvoltarea sinusului in serie Taylor.
-function result = P2sin(x = 10 * pi, err = eps)
+function result = sinTaylor(x = 10 * pi, err = eps)
   result = 0;
   % reducerea inputului la primul cadran
   x = mod(x, 2 * pi);
