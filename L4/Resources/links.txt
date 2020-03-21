@@ -1,0 +1,3 @@
+Gausian Elimination - https://www.youtube.com/watch?v=RgnWMBpQPXk&list=PLkZjai-2Jcxlg-Z1roB0pUwFU-P58tvOx&index=11
+LU decomposition    - https://www.youtube.com/watch?v=j48z_nY-oB8&list=PLkZjai-2Jcxlg-Z1roB0pUwFU-P58tvOx&index=15
+Solve LUx = b	    - https://www.youtube.com/watch?v=o5viKb1jqhM&list=PLkZjai-2Jcxlg-Z1roB0pUwFU-P58tvOx&index=16
