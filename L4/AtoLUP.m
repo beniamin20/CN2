@@ -30,13 +30,13 @@ function [L,U,P] = AtoLUP(A)
       U(j,k:m) = U(j,k:m) - L(j,k) * U(k,k:m);
     endfor
   endfor  
-  L = inverseLMatrix(L);
 endfunction
 
 % We manually invert the L matrix because inv introduces errors we do not wish
 % L is a unit lower triangular matrix and the function will only work with 
 % these kind of matrices
 % Basically all we have to do is change the sign of the values bellow the main diagonal 
+% TODO not necesarry atm.
 function L = inverseLMatrix(L)
   [n,m] = size(L);
   for(i=2:n)
