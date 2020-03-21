@@ -31,7 +31,7 @@ function [L,U,P, b] = gaussElimination(A, b)
   % extract b from extended matrix U
   b = U(:,m);
   % revert matrix U to original size
-  U = U(:,1:m-1)
+  U = U(:,1:m-1);
 endfunction
 
 % Find the best pivot candidate
