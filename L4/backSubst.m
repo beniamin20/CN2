@@ -1,7 +1,7 @@
 % backward substitution
 % U - upper triangular matrix
 % b - right hand side vector
-function x = backsubst(U,b)
+function x = backSubst(U,b)
   n = length(b);
   x = zeros(size(b));
   for k=n:-1:1

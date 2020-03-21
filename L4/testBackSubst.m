@@ -6,5 +6,5 @@ function [expected_result, result] = testBackSubst()
   b = [7; 2.5; 6.2];
   
   expected_result = [0; -1; 1];
-  result = backsubst(U,b);
+  result = backSubst(U,b);
 endfunction

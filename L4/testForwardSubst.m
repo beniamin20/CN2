@@ -7,5 +7,5 @@ function [expected_result, result] = testForwardSubst()
   b = [-1; -7; -6];
   
   expected_result = [-1; -9; 2];
-  result = forwardsubst(L,b);
+  result = forwardSubst(L,b);
 endfunction

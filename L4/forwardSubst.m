@@ -1,7 +1,7 @@
 % FORWARDSUBST - forward substitution
 % L - lower triangular matrix
 % b - right hand side vector
-function x = forwardsubst(L,b)
+function x = forwardSubst(L,b)
   x = zeros(size(b));
   n = length(b);
   for k=1:n
