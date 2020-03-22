@@ -11,7 +11,7 @@ function [L,U,P] = AtoLUP(A)
   for(k=1:n-1)
     % Find the column of the best pivot
     i = findPositionOfMaxAbs(A,k);
-    % Rearange upper trianghiular matrix
+    % Rearange upper triangular matrix
     aux = U(k,k:m);
     U(k,k:m) = U(i,k:m);
     U(i,k:m) = aux;
