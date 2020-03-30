@@ -1,0 +1,26 @@
+% The Jacobi method is an iterative algorithm that given a system of ecuations
+% in the form A*x = b will provide x~ an aproximation for x.
+% Below is an explication in natural language of the approach.
+
+% Not: n - number of ecuations. 
+% We can rething about the given system A*x = b as:
+% For i=1:n:  
+%    sum A(i,j)*x(j) = b(i) -  where j takes values from 1 to n
+
+% The sum is echivalent to:
+% A(i,i)*x(i,i) + sum A(i,j)*x(j) = b(i) | where j takes values from 1 to n \ {i}
+
+% Which in turn can be written as:
+% x(i,i) = 1/A(i,i) * (b(i) - sum A(i,j)*x(j) | where j takes values from 1 to n \ {i}
+
+% Now if we consider the left side of the above expresion as the current aproximation of x
+% And the right side of as the previous aproximation of x what we have is the Jacobi method
+
+% The initial aproximation of x is [0; 0 ... ;0]
+% The error(and the stop condition) of the current iteration is norm(xn-xv,inf)/norm(xn,inf);
+
+% We can implement this using matrix operations. 
+% A(i,i) can be switched with the diagonal matrix M = diag(diag(A))
+% A(i,j) - i=1:n ; j=1:n can be switched with N = M - A
+% The calculation of current x then becomes
+% xcurent = M \ (N * xprevious + b);
