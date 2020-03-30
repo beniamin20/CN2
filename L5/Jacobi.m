@@ -16,7 +16,7 @@ function x = Jacobi(A,b, err = eps)
     x_previous = x_curent;
     x_curent   = M\(N*x_previous+b);
    
-    err_curent = norm(x_curent-x_previous,inf)/norm(x_curent);
+    err_curent = norm(x_curent-x_previous,inf)/norm(x_curent,inf);
   until(err_curent < err || current_iteration > MAX_ITERATIONS)
   
   x = x_previous;
