@@ -15,12 +15,10 @@
 
 % Now if we consider the left side of the above expresion as the current aproximation of x
 % And the right side of as the previous aproximation of x what we have is the Jacobi method
-
 % The initial aproximation of x is [0; 0 ... ;0]
-% The error(and the stop condition) of the current iteration is norm(xn-xv,inf)/norm(xn,inf);
 
 % We can implement this using matrix operations. 
 % A(i,i) can be switched with the diagonal matrix M = diag(diag(A))
 % A(i,j) - i=1:n ; j=1:n can be switched with N = M - A
-% The calculation of current x then becomes
-% xcurent = M \ (N * xprevious + b);
+% x(i,i) - is replaced by simply x (curent|previous)
+% 
