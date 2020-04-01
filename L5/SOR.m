@@ -22,7 +22,7 @@ function result = SOR(A,b, err = eps)
   % w = 1;
   
   T = (D-w*L)^(-1) * ((1-w)*D + w*U);
-  c = w*(D-w*L)^(-1) * w*b;
+  c = (D-w*L)^(-1)*w*b;
   
   do
     current_iteration++;
