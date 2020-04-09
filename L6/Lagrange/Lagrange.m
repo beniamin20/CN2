@@ -1,10 +1,11 @@
+% When in doubt, use the debugger.
 % f(X) = Y
 % x - new data point for which we wish to aproximate y
 % X - given X data points 
 % Y - given Y data points
-function result = Lagrange(x,X,Y)
+function y = Lagrange(x,X,Y)
   l = lkV(x,X);
-  result = sum(l .* Y);
+  y = sum(l .* Y);
 end
 
 % compute l - vector of Lagrange Polynomial evaluations
