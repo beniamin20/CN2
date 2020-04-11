@@ -35,7 +35,7 @@ function y = LagrangeBarycentric(X,Y,x)
   y = numerator ./ denominator;
   
   % plug in know y if any known x was passed
-  jj = find(exact)
+  jj = find(exact);
   y(jj) = Y(exact(jj));
 end
 
