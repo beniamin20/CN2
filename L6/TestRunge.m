@@ -23,5 +23,5 @@ plot(xc,yc,'g');
 
 % compute interpolation for echidistant nodes
 xe = linspace(a,b,n);
-ye = ChebLagrange(X,Y,xe);
+ye = LagrangeBarycentric(X,Y,xe);
 plot(xe,ye,'r');
