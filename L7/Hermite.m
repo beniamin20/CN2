@@ -1,9 +1,10 @@
 % When in dobut use the debugger
 % f(X) = Y
-% x  - x to aproximate
-% X  - Known x data points
-% Y  - Known y values
-% Yd - derivative of Y
+% x   - x to aproximate
+% X   - Known x data points
+% Y   - Known y values
+% Yd  - derivative of Y
+% err - error tolerance 
 % @return
 % y  - f(x) ~ y
 % Hp - Values of Hermite Polinomial 
@@ -34,7 +35,7 @@ end
 
 % Compute Hermite divided differences
 % In the given example the return value Q must match the first line of the
-% given divided differences table.
+% given divided differences table(http://math.ubbcluj.ro/~tradu/labrom/NEWTDIV.pdf).
 function Q = computeQ(X,Y,Yd)
   m = length(X);
   for i=1:m
