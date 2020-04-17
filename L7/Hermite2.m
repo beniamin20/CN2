@@ -16,11 +16,6 @@ function [Hp,y] = Hermite2(x,X,Y,Yd)
   if(nargin < 4)
     [x,X,Y,Yd] = getInput();
   end
-  % sort input by X(i)err = eps;
-  [aux,ii] = sort(abs(X-x));
-  X  = X(ii);
-  Y  = Y(ii);
-  Yd = Yd(ii);
   
   [z,Q] = DivDiffDoubleNodes(X,Y,Yd);
   % remove Y(1) from Q

@@ -13,12 +13,6 @@ function y = Hermite(x,X,Y,Yd)
     [x,X,Y,Yd] = getInput();
   end
   
-  % sort input by X(i)err = eps;
-  [aux,ii] = sort(abs(X-x));
-  X  = X(ii);
-  Y  = Y(ii);
-  Yd = Yd(ii);
-  
   [z,Q] = DivDiffDoubleNodes(X,Y,Yd);
   y     = LIPNewton(x,Q,z);
 end

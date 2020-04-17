@@ -1,3 +1,4 @@
+% When in dobut use the debugger
 disp("Newton");
 Newton()
 disp("");
