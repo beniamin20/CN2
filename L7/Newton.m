@@ -16,17 +16,8 @@ function y = Newton(x,X,Y)
   X = X(ii);
   Y = Y(ii);
   
-  Q = computeQ(X,Y);
-  % previous y. first aproimation is f(xo)
-  py = Y(1);
-  
-  for(i=1:length(Q))
-    y = py + Q(i)*prod(x-X(1:i)); 
-    if(abs(y-py) < eps) 
-       return;
-    end
-    py = y;
-  end
+  [Q,z] = DivDiff(X,Y);
+  y     = LIPNewton(x,Q,z);
 end
 
 % Compute Newtons divided differences

@@ -1,3 +1,4 @@
+% When in dobut use the debugger
 % Dataset 1
 x   = 0.33;
 X   = [0.3 0.32 0.35];
@@ -9,10 +10,12 @@ for(i=1:length(X))
 end
 
 % compute Hermite Interpolation
-[Hp, result] = Hermite(x,X,Y,Yd);
+result = Hermite(x,X,Y,Yd);
 
-raprox = result
-r = sin(x)
+% ra - result aproximation
+% rr - real result
+ra = result
+rr = sin(x)
 err = abs(r-raprox)
 disp("");
 
@@ -26,8 +29,10 @@ for(i=1:length(X))
 end
 
 % compute Hermite Interpolation
-[Hp, result] = Hermite(x,X,Y,Yd);
+result = Hermite(x,X,Y,Yd);
 
-raprox = result
-r = sin(x)
+% ra - result aproximation
+% rr - real result
+ra = result
+rr = sin(x)
 err = abs(r-raprox)

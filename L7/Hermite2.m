@@ -1,18 +1,21 @@
 % When in dobut use the debugger
+% Use this procedure when the intermediate values of the polynomial are needed
+
 % f(X) = Y
-% x   - vector of data points to aproximate
+% x   - x to aproximate
 % X   - Known x data points
 % Y   - Known y values
 % Yd  - derivative of Y
+% err - error tolerance 
 % @return
-% y  - vector of f(x) ~ y
-function y = Hermite(x,X,Y,Yd)
+% y  - f(x) ~ y
+% Hp - Values of Hermite Polinomial 
+function [Hp,y] = Hermite2(x,X,Y,Yd)
   Hp = [];
   % use predifined input
   if(nargin < 4)
     [x,X,Y,Yd] = getInput();
   end
-  
   % sort input by X(i)err = eps;
   [aux,ii] = sort(abs(X-x));
   X  = X(ii);
@@ -20,9 +23,20 @@ function y = Hermite(x,X,Y,Yd)
   Yd = Yd(ii);
   
   [z,Q] = DivDiffDoubleNodes(X,Y,Yd);
-  y     = LIPNewton(x,Q,z);
+  % remove Y(1) from Q
+  Q = Q(2:end);
+  Hp(1) = py = Y(1);
+  
+  for(i=1:length(Q))
+    y = py + Q(i)*prod(x-z(1:i)); 
+    
+    % stop condition. Improvment is smaller than eps
+    if(abs(y-py) < eps) 
+      return;
+    end
+    Hp(i+1) = py = y;
+  end
 end
-
 
 % Get hardcoded input
 function [x,X,Y,Yd] = getInput()
