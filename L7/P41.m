@@ -8,7 +8,7 @@ for(i=1:length(X))
   Y(i) = Yd(i) = exp(X(i));
 end
 
-[Hp, result] = Hermite(x,X,Y,Yd,eps);
+[Hp, result] = Hermite(x,X,Y,Yd);
 
 result_aproximation = result
 result = exp(x)

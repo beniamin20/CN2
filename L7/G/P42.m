@@ -9,7 +9,7 @@ for(i=1:length(X))
 end
 
 % compute Hermite Interpolation
-[Hp, result] = Hermite(x,X,Y,Yd);
+result = Hermite(x,X,Y,Yd);
 
 raprox = result
 r = sin(x)
@@ -26,7 +26,7 @@ for(i=1:length(X))
 end
 
 % compute Hermite Interpolation
-[Hp, result] = Hermite(x,X,Y,Yd);
+result = Hermite(x,X,Y,Yd);
 
 raprox = result
 r = sin(x)
