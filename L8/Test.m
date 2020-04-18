@@ -4,4 +4,3 @@ Y   = [0.6200860 0.4554022 0.2818186];
 
 [c,y] = SplineNatural(X,Y,x);
 y
-spline (X, Y,x)
