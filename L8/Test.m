@@ -12,3 +12,6 @@ disp("Complete Spline");
 [c,y] = SplineComplete(X,Y,x,Yd(1),Yd(3));
 y
 
+disp("DeBor Spline");
+[c,y] = SplineDeBor(X,Y,x);
+y
