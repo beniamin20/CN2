@@ -50,6 +50,7 @@ function [M,b,id_ec] = BuildGenericSplineEcuations(X,Y,x)
   end
   
   % i=1:n-2 , n-2 ecuations
+  % S'[i](x) = c[4i-2] + 2*c[4i-1]*(x - xi) + 3*c[4i]*(x - xi)^2
   % S'[i](X[i+1])                               =   S'[i+1](X[i+1])
   % c[4i-2] + 2*c[4i-1]*(X[i+1]-X[i]) + 3*c[4i]*(X[i+1]-X[i])^2   =   c[4(i+1)-2]
   % c[4i-2] + 2*c[4i-1]*(X[i+1]-X[i]) + 3*c[4i]*(X[i+1]-X[i])^2 - c[4(i+1)-2] = 0
@@ -61,6 +62,7 @@ function [M,b,id_ec] = BuildGenericSplineEcuations(X,Y,x)
   end
   
   % i=1:n-2, n-2 ecuations
+  % S"[i](x) = 2*c[4i-1]*(x - xi) + 6*c[4i]*(x - xi)
   % S"[i](X[i+1])                =   S"[i+1](X[i+1])
   % 2*c[4i-1] + 6*c[4i]*(X[i+1]-X[i]) = 2*c[4(i+1)-1]
   % 2*c[4i-1] + 6*c[4i]*(X[i+1]-X[i]) - 2*c[4(i+1)-1] = 0

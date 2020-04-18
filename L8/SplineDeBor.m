@@ -14,17 +14,18 @@ function [c,y] = SplineDeBor(X,Y,x)
   [M,b,id_ec] = BuildGenericSplineEcuations(X,Y,x);
   
   % Conditions specific to "not a knot" DeBor splines
-  % S"'[i](x) = c[4i]
+  % S"'[i](x) = 6*c[4i]
   % S[1]"'(X[2]) = S[2]"'(x[2]) 
-  % c[4]         = c[8]
-  M(id_ec,4) = 1;
-  M(id_ec,8) = -1;  
+  % 6*c[4]         = 6*c[8]
+  M(id_ec,4) = 6;
+  M(id_ec,8) = -6;  
   id_ec++;
   
+  % S"'[i](x) = 6*c[4i]
   % S[n-2]"'(X[n-1]) = S[n-1]"'(x[n-1])
   % c[4*(n-2)]       = c[4*(n-1)]
-  M(id_ec,4*(n-2)) = 1;
-  M(id_ec,4*(n-1)) = -1;
+  M(id_ec,4*(n-2)) = 6;
+  M(id_ec,4*(n-1)) = -6;
   
   % c - spline polynomials coeficients
   c = M \ b;
