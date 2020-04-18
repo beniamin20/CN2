@@ -1,0 +1,11 @@
+% General Idea.
+https://www.youtube.com/watch?v=wMMjF7kXnWA
+
+% Linear splines
+https://www.youtube.com/watch?v=EnIVH9FjbYc
+
+% Quadratic splines
+https://www.youtube.com/watch?v=Xf_S0jeAc2A
+
+% Cubic splines
+https://www.youtube.com/watch?v=gfSKOfHRooQ

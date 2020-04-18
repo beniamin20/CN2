@@ -16,7 +16,7 @@ result = Hermite(x,X,Y,Yd);
 % rr - real result
 ra = result
 rr = sin(x)
-err = abs(r-raprox)
+err = abs(rr-ra)
 disp("");
 
 % Dataset 2
@@ -35,4 +35,4 @@ result = Hermite(x,X,Y,Yd);
 % rr - real result
 ra = result
 rr = sin(x)
-err = abs(r-raprox)
+err = abs(rr-ra)
