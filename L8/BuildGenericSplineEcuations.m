@@ -51,23 +51,23 @@ function [M,b,id_ec] = BuildGenericSplineEcuations(X,Y,x)
   
   % i=1:n-2 , n-2 ecuations
   % S'[i](X[i+1])                               =   S'[i+1](X[i+1])
-  % c[4i-2] + c[4i-1]*(X[i+1]-X[i]) + c[4i]*(X[i+1]-X[i])^2   =   c[4(i+1)-2]
-  % c[4i-2] + c[4i-1]*(X[i+1]-X[i]) + c[4i]*(X[i+1]-X[i])^2 - c[4(i+1)-2] = 0
+  % c[4i-2] + 2*c[4i-1]*(X[i+1]-X[i]) + 3*c[4i]*(X[i+1]-X[i])^2   =   c[4(i+1)-2]
+  % c[4i-2] + 2*c[4i-1]*(X[i+1]-X[i]) + 3*c[4i]*(X[i+1]-X[i])^2 - c[4(i+1)-2] = 0
   for(i=1:n-2)
     col = 4*i-3;
-    M(id_ec,col+1:col+3) = ((X(i+1)-X(i)) * ones(1,3)) .^ [0 1 2];
+    M(id_ec,col+1:col+3) = ((X(i+1)-X(i)) * [1 2 3]) .^ [0 1 2];
     M(id_ec,4*(i+1)-2) = -1;
     id_ec++;
   end
   
   % i=1:n-2, n-2 ecuations
   % S"[i](X[i+1])                =   S"[i+1](X[i+1])
-  % c[4i-1] + c[4i]*(X[i+1]-X[i]) = c[4(i+1)-1]
-  % c[4i-1] + c[4i]*(X[i+1]-X[i]) - c[4(i+1)-1] = 0
+  % 2*c[4i-1] + 6*c[4i]*(X[i+1]-X[i]) = 2*c[4(i+1)-1]
+  % 2*c[4i-1] + 6*c[4i]*(X[i+1]-X[i]) - 2*c[4(i+1)-1] = 0
   for(i=1:n-2)
     col = 4*i-3;
-    M(id_ec,col+2:col+3) = [1 (X(i+1)-X(i))];
-    M(id_ec,4*(i+1)-1)   = -1;
+    M(id_ec,col+2:col+3) = [2 6*(X(i+1)-X(i))];
+    M(id_ec,4*(i+1)-1)   = -2;
     id_ec++;
   end 
 end

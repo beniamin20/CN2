@@ -13,7 +13,6 @@
 % y - aproximation for x
 % c - ecuation coeficients
 function [c,y] = SplineSecondDerivative(X,Y,x,ydd1,yddn)
-
   [M,b,id_ec] = BuildGenericSplineEcuations(X,Y,x);
   n = length(X);
   
