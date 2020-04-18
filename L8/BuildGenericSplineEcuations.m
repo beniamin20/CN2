@@ -1,3 +1,12 @@
+% @input 
+% X - known data points
+% Y - known values for known data points
+% x - data point to aproximate
+
+% @return
+% M     - unknown coeficients ecuations in Matrix format
+% b     - M * c = b
+% id_ec - index of the last added ecuation
 function [M,b,id_ec] = BuildGenericSplineEcuations(X,Y,x)
   % i=1:n where n is number of data points n = length(X) = length(Y)
   % S(x) is a cubic polynomial denoted S[i](x) on the subinterval [X(i),X(i+1)]
@@ -61,6 +70,5 @@ function [M,b,id_ec] = BuildGenericSplineEcuations(X,Y,x)
     M(id_ec,4*(i+1)-1)   = -1;
     id_ec++;
   end 
-  
 end
 

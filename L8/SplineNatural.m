@@ -1,9 +1,11 @@
 % Compute SplineNatural Interpolation
 % F(X) = Y F(x) ~ y
+
 % @input
 % X - known data points
 % Y - known values for known data points
 % x - data point to aproximate
+
 % @return
 % y - aproximation for x
 % c - ecuation coeficients
