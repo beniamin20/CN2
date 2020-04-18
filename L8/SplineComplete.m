@@ -1,5 +1,5 @@
 % When in doubt. Use the debugger.
-% Compute SplineNatural Interpolation
+% Compute SplineComplete Interpolation
 % F(X) = Y F(x) ~ y
 
 % @input
@@ -7,7 +7,7 @@
 % Y   - known values for known data points
 % x   - data point to aproximate
 % yd1 - y'(x(1))
-% yd2 = y'(x(length(x))
+% ydn = y'(x(length(x))
  
 % @return
 % y - aproximation for x
@@ -16,13 +16,13 @@ function [c,y] = SplineComplete(X,Y,x,yd1,ydn)
 
   [M,b,id_ec] = BuildGenericSplineEcuations(X,Y,x);
   n = length(X);
-  % Conditions specific to natural splines
+  % Conditions specific to complete splines
   
   % S'[1](X[1]) = f'(X[1]) = yd1
   
   % S[i](x)     = c[4i-3] + c[4i-2]*(x - xi) + c[4i-1]*(x - xi)^2 + c[4i]*(x - xi)^3;
   % S'[i](x)    = c[4i-2] + c[4i-1]*(x - xi) + c[4i]*(x - xi)^2;
-  % S'[1](X[1]) = c[2]
+  % S''[1](X[1]) = c[2]
   M(id_ec,2) = 1;
   b(id_ec)   = yd1;
   id_ec++;
