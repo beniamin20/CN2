@@ -1,0 +1,1 @@
+function result = AnalogHorner(x,Coeff)
