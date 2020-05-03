@@ -4,7 +4,7 @@
 function C = FindLeastSquaresPolynomialCoeff(X,Y, n)
    A = zeros(n+1,n+1);
    b = zeros(1,n+1);
-  
+   
    % Build normal equations 
    for i=1:n+1
      for j=1:n+1
@@ -14,5 +14,5 @@ function C = FindLeastSquaresPolynomialCoeff(X,Y, n)
    end
    % Compute coefficients
    C = A \ b';
-   C = C';
+   C = flip(C');
 end
