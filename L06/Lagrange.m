@@ -14,7 +14,7 @@ function l = lkV(x,X)
   for k = 1:length(X)
     l = [l lk(k,x,X)];
   end
-endfunction
+end
 
 % computes lk - The kth Lagrange Polynomial
 % k - polynomial index
