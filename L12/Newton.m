@@ -4,12 +4,13 @@
 % err = error tolerance e.g. eps
 % nmax = maximum number of iterations
 function result = Newton(f,fd,x1,err,nmax)
+  %result = zeros(1,length(x1));
+  x = x1;
   for i=1:nmax
-    result = x1 - (1/fd(x1)) * f(x1);
-    if abs(result - x1) < err
-       return;
-    end
-    x1 = result;
+      result = x - f(x)./fd(x);
+      if abs(result - x) < err
+             break;
+      end
+      x = result;
   end
-  error("Can not solve in given number of iterations with given err tolerance");
 end

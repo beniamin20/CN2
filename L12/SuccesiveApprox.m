@@ -1,3 +1,4 @@
+function [z,ni] = SuccesiveApprox(f,fd,x0,err,nmax)
 %Newtonsyst - Newtons method for nonlinear equations in R and R^n
 %Input
 %f  - System of non linear function
@@ -8,12 +9,12 @@
 %Output
 %z -  Roots approximation
 %ni - Number of iterations
-function [z,ni] = SuccesiveApprox(f,fd,x0,err,nmax)
     i = 1;
     xp = x0; % xp - x previous
+    Lambda=fd(x0);
     while i <= nmax
-        xc = xp - (f(xp) .* -fd(xp).^-1); % xc - x current
-        if abs(xc-xp) < err
+        xc = xp - Lambda\f(xp); % xc - x current
+        if norm(xc-xp,inf) < err
             z  = xc;
             ni = i;
             return;
