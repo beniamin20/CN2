@@ -1,16 +1,29 @@
-% f  = function e.g @(x) cos(x) - x;
-% fd = derivative of above function e.g. @(x) - sin(x) - 1;
-% x1 = initial aprox for f(x1)= 0 e.g. pi/4
-% err = error tolerance e.g. eps
-% nmax = maximum number of iterations
-function result = Newton(f,fd,x1,err,nmax)
-  %result = zeros(1,length(x1));
-  x = x1;
-  for i=1:nmax
-      result = x - f(x)./fd(x);
-      if abs(result - x) < err
-             break;
-      end
-      x = result;
-  end
+function [z,ni]=Newton(f,fd,x0,ea,er,nmax)
+%NEWTON - metoda lui Newton pentru ecuatii neliniare in R si R^n
+%apel [z,ni]=Newton(f,fd,x0,ea,er,nmax)
+%Intrare
+%f - functia
+%fd - derivata
+%x0 - aproximatia initiala 
+%ea - eroarea absoluta
+%er - eroarea relativa
+%nmax - numarul maxim de iteratii
+%Iesire
+%z - aproximatia radacinii
+%ni - numarul de iteratii
+
+    if nargin < 6, nmax=50; end
+    if nargin < 5, er=0; end
+    if nargin < 4, ea=1e-3; end
+    xp=x0(:);   %x precedent
+    for k=1:nmax
+        xc=xp-fd(xp)\f(xp); %disp(xc);
+        if norm(xc-xp,inf)<ea+er*norm(xc,inf)
+            z=xc; %succes
+            ni=k;
+            return
+        end
+        xp=xc;
+    end
+    error('S-a depasit numarul maxim de iteratii');
 end
