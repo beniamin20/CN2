@@ -12,7 +12,7 @@ end
 disp("Rezultatele Problemei 1 folosind metoda Newton");
 z, ni
 
-% Problema 2 Secant
+% Problema 1 Secant
 x2 = [2 4 8];
 for k=1:length(x1)
  [z(k),ni(k)] = Secant(f,x1(k),x2(k),err,nmax);
