@@ -21,11 +21,10 @@ function y = ChebLagrange(X,Y,x)
 
   for j=1:n
       x_diff = x-X(j);
-      
       % division by zero is allowed and results in inf
-      new_wj = w(j) ./ x_diff;
-      numerator += new_wj * Y(j);
-      denominator += new_wj;
+      raport = w(j) ./ x_diff;
+      numerator = numerator + raport * Y(j);
+      denominator = denominator + raport;
       
       % x_diff == 0 returns the index of the 0 value
       exact(x_diff==0) = j;

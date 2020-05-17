@@ -4,13 +4,16 @@
 % X - given X data points 
 % Y - given Y data points
 function y = Lagrange(x,X,Y)
-  l = lkV(x,X);
-  y = sum(l .* Y);
+  y = zeros(1,length(x));
+  for i=1:length(x)
+    l = lkV(x(i),X);
+    y(i) = sum(l .* Y);
+  end
 end
 
 % compute l - vector of Lagrange Polynomial evaluations
 function l = lkV(x,X)
-  l = [];
+  l = zeros(length(X));
   for k = 1:length(X)
     l = [l lk(k,x,X)];
   end
@@ -24,23 +27,5 @@ function result = lk(k,x,X)
   xk = X(k);
   m  = length(X);
   X  = [X(1:k-1) X(k+1:m)];
- 
   result = prod((x-X)./(xk-X));     
-end
-
-% @deprecated in favor of lk(k,x,X)
-% computes lk - The kth Lagrange Polynomial
-% k - polynomial index
-% x - new data point for f(x)
-% X - initial X data points.
-function result = lkDeprecated(k,x,X)
-  m = length(X);
-  terms = [];
-  for j = 1:m
-    if(j == k)
-      continue;
-    end
-    terms = [terms (x-X(j))/(X(k)-X(j))];
-  end
-  result = prod(terms);
 end
