@@ -23,7 +23,7 @@ function [c,y] = SplineNatural(X,Y,x)
   
   
   % S"[i](x)      <=> 2*c[4i-1]*(x - xi) + 6*c[4i]*(x - xi)
-	% S"[n-1](x[n])  = 0
+  % S"[n-1](x[n])  = 0
   % 2*c[4(n-1)-1] + 6*c[4(n-1)]*(X[n]-X[n-1]) = 0
   M(id_ec,4*(n-1)-1:4*(n-1)) = [2 6*(X(n)-X(n-1))];
   
