@@ -1,4 +1,4 @@
-function [g_nodes,g_coeff]=Gauss_Jacobi(n,a,b)
+function [g_nodes,g_coeff]=Gauss_Jacobim(n,a,b)
 %Gauss-Jacobi - Gauss-Jacobi nodes and coefficients
 
 k=0:n-1; 
