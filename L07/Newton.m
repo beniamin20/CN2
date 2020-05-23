@@ -19,21 +19,3 @@ function y = Newton(x,X,Y)
   [Q,z] = DivDiff(X,Y);
   y     = LIPNewton(x,Q,z);
 end
-
-% Compute Newtons divided differences
-% As per indications received from Prof. Trambitas
-% We only use the first line of divided diferences table.
-function Q = computeQ(X,Y)
-  m = length(X);
-  Q = zeros(m,m);
-  Q(:,1) = Y';
-  
-  for j=2:m
-     for i=1:(m-j+1)
-        num = Q(i+1,j-1) - Q(i,j-1);
-        den = X(i+j-1) - X(i);
-        Q(i,j) = num / den;
-     end
-  end
-  Q = Q(1,2:end);
-end

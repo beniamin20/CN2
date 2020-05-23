@@ -11,7 +11,7 @@ function [M,b,id_ec] = BuildGenericSplineEcuations(X,Y,x)
   % i=1:n where n is number of data points n = length(X) = length(Y)
   % S(x) is a cubic polynomial denoted S[i](x) on the subinterval [X(i),X(i+1)]
   % S[1](x) = c1 + c2*(x - x1) + c3*(x-x1)^2 + c4*(x-x1)^3; 
-  % S[2](x) = c5 + c6*(x - x1) + c7*(x-x1)^2 + c8*(x-x1)^3;
+  % S[2](x) = c5 + c6*(x - x2) + c7*(x-x2)^2 + c8*(x-x2)^3;
   % S[i](x) = c[4i-3] + c[4i-2]*(x - xi) + c[4i-1]*(x - xi)^2 + c[4i]*(x - xi)^3;
   % c1, c2 ... c[4*(n-1)] are unknowns further refferred as coeficients.
   
