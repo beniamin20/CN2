@@ -10,24 +10,24 @@ function [R,Q] = HouseholderQR(A)
       A(j:m,j:n)=A(j:m,j:n)-beta(j)*v*(v'*A(j:m,j:n));
       if j<m
           A(j+1:m,j)=v(2:m-j+1);
-      endif
-  endfor
+      end
+  end
   R=triu(A(1:n,:));
   v=zeros(n,1);
   % Q is not requested. early return.
   if nargout==1
     return;
-  endif
+  end
   % compute Q
   Q=eye(m,n);
   for j=n:-1:1
     v(j:m)=[1;A(j+1:m,j)];
     Q(j:m,j:n)=Q(j:m,j:n)-beta(j)*v(j:m)*(v(j:m)'*Q(j:m,j:n));
-  endfor
+  end
 end
 
 %HOUSE - Compute HH reflection vector
-function [v,beta]=house(x)
+function [v,beta] = house(x)
   n=length(x);
   sigma=x(2:n)'*x(2:n);
   v=[1;x(2:n)];
@@ -42,9 +42,9 @@ function [v,beta]=house(x)
               v(1)=x(1)-mu;
           else
               v(1)=-sigma/(x(1)+mu);
-          endif
+          end
           beta=2*v(1)^2/(sigma+v(1)^2);
           v=v/(v(1));
-      endif
-  endif
-endfunction
+      end
+  end
+end

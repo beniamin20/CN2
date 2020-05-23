@@ -3,4 +3,4 @@
 function x = solveUsingGauss(A,b)
   [L,U,P,b] = gaussElimination(A,b);
   x = backSubst(U,b);
-endfunction
+end

@@ -10,4 +10,4 @@ function x = solveUsingLUP(A,b)
   b = P*b;
   y = forwardSubst(L,b);
   x = backSubst(U,y);
-endfunction
+end

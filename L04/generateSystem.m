@@ -4,4 +4,4 @@
 function [A,B] = generateSystem(n = 10)
   A = rand(n);
   B = sum(A,2);
-endfunction
+end

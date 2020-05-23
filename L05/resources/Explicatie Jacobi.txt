@@ -3,7 +3,7 @@
 % Below is an explication in natural language of the approach.
 
 % Not: n - number of ecuations. 
-% We can rething about the given system A*x = b as:
+% We can rethink about the given system A*x = b as:
 % For i=1:n:  
 %    sum A(i,j)*x(j) = b(i) -  where j takes values from 1 to n
 
@@ -21,4 +21,3 @@
 % A(i,i) can be switched with the diagonal matrix M = diag(diag(A))
 % A(i,j) - i=1:n ; j=1:n can be switched with N = M - A
 % x(i,i) - is replaced by simply x (curent|previous)
-% 

@@ -8,7 +8,7 @@ function [L,U,P] = AtoLUP(A)
   I = eye(n);
   U = A; L = I; P = I;
     
-  for(k=1:n-1)
+  for k=1:n-1
     % Find the column of the best pivot
     i = findPositionOfMaxAbs(A,k);
     % Rearange upper triangular matrix
@@ -23,14 +23,14 @@ function [L,U,P] = AtoLUP(A)
     aux = P(k,:);
     P(k,:) = P(i,:);
     P(i,:) = aux;
-    for(j=k+1:n)
+    for j=k+1:n
       % compute the multiplicator value
       L(j,k)   = U(j,k)/U(k,k);
       % Eliminate the values underneath U(k,k)
       U(j,k:m) = U(j,k:m) - L(j,k) * U(k,k:m);
-    endfor
-  endfor  
-endfunction
+    end
+  end  
+end
 
 % We manually invert the L matrix because inv introduces errors we do not wish
 % L is a unit lower triangular matrix and the function will only work with 
@@ -39,12 +39,12 @@ endfunction
 % TODO not necesarry atm.
 function L = inverseLMatrix(L)
   [n,m] = size(L);
-  for(i=2:n)
-    for(j=1:i-1)
+  for i=2:n
+    for j=1:i-1
       L(i,j) = - L(i,j);
-    endfor
-  endfor
-endfunction
+    end
+  end
+end
 
 % Find the best pivot candidate
 % The best pivot is the one with the highest absolute value
@@ -59,6 +59,6 @@ function i = findPositionOfMaxAbs(A, k)
     if(maxCandidate > max) 
       i = j;
       max = maxCandidate;
-    endif 
-  endfor
-endfunction
+    end
+   end
+  end

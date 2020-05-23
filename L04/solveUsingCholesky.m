@@ -11,4 +11,4 @@ function x = solveUsingCholesky(A, b)
   R = cholesky(A);
   y = forwardSubst(R',b);
   x = backSubst(R,y);
-endfunction
+end
